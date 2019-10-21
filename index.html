@@ -136,7 +136,7 @@
                 src: ['impact.wav']
             });
             audio.windLong = new Howl({
-                src: ['windLong.wav'],
+                src: ['wind2.wav'],
                 volume: .3,
                 autoplay: true,
                 loop: true,
@@ -323,7 +323,8 @@
             texts.restart.interactive = true;
             texts.restart.on("click", restartGame);
 
-            texts.options = new PIXI.Text("OPTIONS", {
+            
+            texts.options = new PIXI.Text("", {
                 font: "65px Arial",
                 fill: "white"
             });
@@ -333,7 +334,7 @@
                 ///TODO
             })
 
-            texts.mainMenu = new PIXI.Text("MAIN MENU", {
+            texts.mainMenu = new PIXI.Text("", {
                 font: "65px Arial",
                 fill: "white"
             });
@@ -425,6 +426,7 @@
                     restartGame();
                     break;
                 case 27:
+                    /*
                     if (state === play) {
                         state = pauseMenu;
 
@@ -439,6 +441,7 @@
                     } else if (state === pauseMenu) {
                         resumeGame();
                     }
+                    */
                     break;
                 case 77:
                     applyFilters();
@@ -466,7 +469,7 @@
 
         function onMouseMove() {
 
-            console.log(stage.children);
+            //console.log(stage.children);
             player.hasPreviouslyUsedKeyboard = false;
 
             isMouseOutOfCanvas = false;
@@ -562,7 +565,7 @@
                 count += 0.02 * player.health / 3;
                 var multiplier = 1 - player.health / 20 /// between 0 and 1;
                 var brightness = multiplier + Math.cos(count) * (1 - multiplier);
-                console.log(brightness);
+                //console.log(brightness);
                 deathEffectFilter.brightness(brightness);
                 blurFilter1.blur = Math.sin(count) * player.health / 4;
             }
